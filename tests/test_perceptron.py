@@ -2,9 +2,9 @@ from typing_extensions import Self
 import unittest
 
 from numpy import number
-import src.Perceptron as perceptron
+import src.perceptron as perceptron
 
-class Tests_Perceptron(unittest.TestCase):
+class tests_perceptron(unittest.TestCase):
 
     def setUp(self):
         self.faixa = 1
