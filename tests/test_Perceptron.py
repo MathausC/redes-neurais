@@ -9,8 +9,8 @@ class Tests_Perceptron(unittest.TestCase):
     def setUp(self):
         self.faixa = 1
         self.entradas = 5
-        self.taxa_correcao = 5
-        self.perceptron = perceptron.get_instace(self.entradas, self.faixa, self.taxa_correcao)
+        self.taxa_de_aprendizado = 5
+        self.perceptron = perceptron.get_instace(self.entradas, self.faixa, self.taxa_de_aprendizado)
 
     def test01_generate_random_weigth(self):
         number = self.perceptron.get_random_number(self.faixa)

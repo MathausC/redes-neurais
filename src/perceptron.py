@@ -1,11 +1,11 @@
 import random as r
 
 class perceptron():
-    def __init__(self, numero_entradas, faixa, taxa_correcao):
+    def __init__(self, numero_entradas, faixa, taxa_de_aprendizado):
         self.numero_entradas = numero_entradas
         self.faixa = faixa
         self.result = 0
-        self.taxa_correcao = taxa_correcao
+        self.taxa_de_aprendizado = taxa_de_aprendizado
         self.pesos = []
         self.gera_pesos_aleatorios()
 
@@ -34,8 +34,8 @@ class perceptron():
         error = self.result - expected
         tam = len(self.pesos)
         for i in range(tam):
-            self.pesos[i] = self.pesos[i] + (self.taxa_correcao * error * expected)
+            self.pesos[i] = self.pesos[i] + (self.taxa_de_aprendizado * error * expected)
 
 
-def get_instace(entradas, faixa, taxa_correcao):
-    return perceptron(entradas, faixa, taxa_correcao)
+def get_instace(entradas, faixa, taxa_de_aprendizado):
+    return perceptron(entradas, faixa, taxa_de_aprendizado)
