@@ -1,7 +1,4 @@
-from typing_extensions import Self
 import unittest
-
-from numpy import number
 import src.perceptron as perceptron
 
 class tests_perceptron(unittest.TestCase):
