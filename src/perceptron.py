@@ -1,6 +1,6 @@
 import random as r
 
-class Perceptron():
+class perceptron():
     def __init__(self, numero_entradas, faixa, taxa_correcao):
         self.numero_entradas = numero_entradas
         self.faixa = faixa
@@ -38,4 +38,4 @@ class Perceptron():
 
 
 def get_instace(entradas, faixa, taxa_correcao):
-    return Perceptron(entradas, faixa, taxa_correcao)
+    return perceptron(entradas, faixa, taxa_correcao)
