@@ -8,6 +8,7 @@ class perceptron():
         self.indici_de_desempenho = 0
         self.taxa_de_aprendizado = taxa_de_aprendizado
         self.pesos = []
+        self.entradas = []
         self.gera_pesos_aleatorios()
 
     def gera_pesos_aleatorios(self):
@@ -23,6 +24,7 @@ class perceptron():
     
     def process(self, entradas):
         self.result = 0
+        self.entradas = entradas
         tam = len(self.pesos)
         for i in range(tam):
             res = entradas[i] * self.pesos[i]
@@ -33,10 +35,10 @@ class perceptron():
 
     def compare_expected(self, expected):
         error = self.result - expected
-        self.indici_de_desempenho = (error**2)/2
+        self.indici_de_desempenho = abs((error/2)**2)
         tam = len(self.pesos)
         for i in range(tam):
-            self.pesos[i] = self.pesos[i] + (self.taxa_de_aprendizado * error * expected)
+            self.pesos[i] = self.pesos[i] + (self.taxa_de_aprendizado * abs(error) * self.entradas[i])
 
     def get_indici_de_desempenho(self) -> float:
         return self.indici_de_desempenho

@@ -8,7 +8,7 @@ class test_rede_neural(unittest.TestCase):
     def setUp(self):
         self.camadas = 2
         self.num_estradas = 5
-        self.taxa_de_aprendizagem = 0.5
+        self.taxa_de_aprendizagem = 0.1
         self.faixa_de_pesos = 1
         self.rede_neural = rede_neural.get_instance(
             self.camadas,
@@ -41,9 +41,10 @@ class test_rede_neural(unittest.TestCase):
         entrada = [1, 1, 1, 1, 1]
         self.rede_neural.process(entrada)
         res1 = self.rede_neural.get_result()
-        self.rede_neural.compare_expected(expected)
-        self.rede_neural.process(entrada)
-        res2 = self.rede_neural.get_result()
+        for i in range(100):
+            self.rede_neural.compare_expected(expected)
+            self.rede_neural.process(entrada)
+            res2 = self.rede_neural.get_result()
         self.assertAlmostEquals(res1, res2)
 
 

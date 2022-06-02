@@ -34,7 +34,7 @@ class tests_perceptron(unittest.TestCase):
         self.perceptron.process(self.entradas)
         res = self.perceptron.get_result()
         error = res - expected_result
-        expected_indice = (error**2)/2
+        expected_indice = abs((error/2)**2)
         self.perceptron.compare_expected(expected_result)
         indice = self.perceptron.get_indici_de_desempenho()
         self.assertAlmostEquals(expected_indice, indice, "indice de desempenho calculado incorretamente")
